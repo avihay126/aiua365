@@ -1,38 +1,67 @@
 .App {
   text-align: center;
+  font-family: "Berlin Sans FB";
+}
+div[id="leagueMenu"]{
+  font-size: 40px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+div[id="pageTitle"]{
+  font-size: 50px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(to right, #2a7de1, #d3cdbd);
+  padding: 10px 20px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+table[id="leaguesBar"]{
+  background: black;
+  width: fit-content;
+  border: 2px solid black;
+  border-spacing: 0 5px;
+  position: absolute;
+
+}
+table[class="homePage"]{
+  font-size: 60px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+table[class="Page"]{
+    left: 50px; top: 150px;
+  font-size: 30px;
+}
+tr[id="rowBar"]{
+  background: rgba(241,232,232,0.68);
+  cursor: pointer;
+}
+#navLink{
+  text-decoration: none;
+  margin: 20px;
+}
+#navLink[class="isActive"]{
   color: white;
+  background: dimgrey;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+/*@media (prefers-reduced-motion: no-preference) {*/
+/*  .App-logo {*/
+/*    animation: App-logo-spin infinite 20s linear;*/
+/*  }*/
+/*}*/
+
+/*@keyframes App-logo-spin {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(360deg);*/
+/*  }*/
+/*}*/

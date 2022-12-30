@@ -1,25 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import React from "react";
+import {BrowserRouter,Routes,Route,NavLink} from "react-router-dom";
+import HomePage from "./HomePage";
+import LeagueHomePage from "./LeagueHomePage";
+import axios from "axios";
+
+const API_URL="https://app.seker.live/fm1/";
+const LEAGUES="leagues";
+
+
+class App extends React.Component {
+    state={
+        leagues:[],
+        currentLeague:"",
+        pages:["Home","Table","HistoryResults","TopScorer","Stats"]
+    }
+    componentDidMount() {
+        this.getLeagues();
+    }
+
+    getLeagues=()=>{
+        axios.get(API_URL+LEAGUES).
+        then((response)=>{
+            this.setState({
+                leagues: response.data,
+            })
+        });
+    }
+    setChosenLeague = (league) => {
+        this.setState({
+            currentLeague:league
+        })
+
+    }
+
+  render() {
+    return (
+        <div className="App">
+        <BrowserRouter>
+            <Routes>
+                <Route path={"/"} element={<HomePage leagues={this.state.leagues} choseLeague={this.setChosenLeague} />}/>
+                <Route path={"/"+this.state.currentLeague} element={<LeagueHomePage title={this.state.currentLeague} pages={this.state.pages} />}/>
+            </Routes>
+        </BrowserRouter>
+            {this.state.currentLeague}
+        </div>
+    );
+  }
 }
 
 export default App;
