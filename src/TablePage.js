@@ -10,10 +10,10 @@ class TablePage extends React.Component{
         teams:[]
     }
     componentDidMount() {
-     this.getTeams();
+     this.getTeams(this.props.league);
     }
-    getTeams=()=>{
-        axios.get(API_URL+"teams/"+this.props.league.id).
+    getTeams=(league)=>{
+        axios.get(API_URL+"teams/"+league.id).
         then((response)=>{
         this.setState({
             teams:response.data
@@ -22,7 +22,7 @@ class TablePage extends React.Component{
     }
     choseLeague=(league)=>{
        this.props.choseLeague(league);
-        this.getTeams();
+        this.getTeams(league);
     }
 
     render() {
