@@ -15,7 +15,7 @@ class HomePage extends React.Component{
                     <PrintPageTitle title={"Welcome"}/>
                 </div>
                 <div>
-                    <PrintLeaguesBar leagues={this.props.leagues} choseLeague={this.props.choseLeague} page={"homePage"}/>
+                    <PrintLeaguesBar currentPage={"Home"} leagues={this.props.leagues} choseLeague={this.props.choseLeague} page={"homePage"}/>
                 </div>
 
             </div>

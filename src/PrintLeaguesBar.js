@@ -9,8 +9,8 @@ function PrintLeaguesBar(props){
                 {
                     props.leagues.map((league)=>{
                         return(
-                            <tr id={"rowBar"} onClick={()=>props.choseLeague(league.name)}>
-                                <PrintNavLink url={"/"+league.name}name={league.name +" League"}/>
+                            <tr id={"rowBar"} onClick={()=>props.choseLeague(league)}>
+                                <PrintNavLink url={"/"+league.name+"/"+props.currentPage}name={league.name +" league"}/>
                             </tr>
                         )
 

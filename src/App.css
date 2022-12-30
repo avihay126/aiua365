@@ -31,7 +31,7 @@ table[class="homePage"]{
   left: 50%;
   transform: translate(-50%, -50%);
 }
-table[class="Page"]{
+table[class="page"]{
     left: 50px; top: 150px;
   font-size: 30px;
 }
@@ -42,10 +42,16 @@ tr[id="rowBar"]{
 #navLink{
   text-decoration: none;
   margin: 20px;
+  color: black;
+}
+#navLink:hover{
+  color: aliceblue;
+  background: black;
+
 }
 #navLink[class="isActive"]{
-  color: white;
-  background: dimgrey;
+  color: aliceblue;
+  background: black;
 }
 
 
