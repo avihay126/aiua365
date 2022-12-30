@@ -3,11 +3,13 @@ import PagesTopMenu from "./PagesTopMenu";
 import PrintPageTitle from "./PrintPageTitle";
 import PrintLeaguesBar from "./PrintLeaguesBar";
 import axios from "axios";
+import PrintTable from "./PrintTable";
 const API_URL="https://app.seker.live/fm1/";
 
 class TablePage extends React.Component{
     state={
-        teams:[]
+        teams:[],
+        tableTeams:[]
     }
     componentDidMount() {
      this.getTeams(this.props.league);
@@ -42,6 +44,9 @@ class TablePage extends React.Component{
                             </div>
                         )
                     })}
+                </div>
+                <div>
+                    <PrintTable teams={this.state.tableTeams}/>
                 </div>
             </div>
 
