@@ -1,11 +1,13 @@
 import React from "react";
 
 function PrintTable(props){
+
     return(
         <div>
             <div>
                 <table id={"leagueTable"}>
                     <tr>
+                        <th> Pos</th>
                         <th>Team Name</th>
                         <th>Matches</th>
                         <th>Scored</th>
@@ -16,10 +18,17 @@ function PrintTable(props){
                         <th>Lose</th>
                         <th>Points</th>
                     </tr>
-                    {props.teams.map((team) => {
+                    {
+
+                        props.teams.map((team) => {
+
                         return (
-                            <tr id={"rowTable"}>
-                                <td>
+
+                            <tr id={"rowTable"} className={team.position>props.teams.length-3?"bottom" :team.position} >
+                                <td >
+                                    {team.position}
+                                </td>
+                                <td id={"tableTeamName"} onClick={()=>props.teamSelected(team)}>
                                     {team.name}
                                 </td>
                                 <td>
@@ -52,6 +61,8 @@ function PrintTable(props){
 
 
                         )
+
+
                     })
                     }
                 </table>
