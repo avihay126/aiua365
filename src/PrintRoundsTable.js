@@ -1,20 +1,18 @@
 import React from "react";
 
-function PrintTable(props){
+function PrintRoundsTable(props){
+
     return(
         <div>
             <div>
-                <table id={"leagueTable"}>
+                <table id={"roundsTable"}>
                     <tr>
-                        <th>Team Name</th>
-                        <th>Matches</th>
-                        <th>Scored</th>
-                        <th>Conceded</th>
-                        <th>Difference</th>
-                        <th>Wins</th>
-                        <th>Draw</th>
-                        <th>Lose</th>
-                        <th>Points</th>
+                        <th>Round</th>
+                        <th>Home team name</th>
+                        <th>Home team goals</th>
+                        <th> - </th>
+                        <th>Away team goals</th>
+                        <th>Away team name</th>
                     </tr>
                     {props.teams.map((team) => {
                         return (
@@ -48,11 +46,9 @@ function PrintTable(props){
                                 </td>
                             </tr>
 
-
-
-
                         )
                     })
+
                     }
                 </table>
 
@@ -60,4 +56,4 @@ function PrintTable(props){
         </div>
     )
 }
-export default PrintTable;
+export default PrintRoundsTable;

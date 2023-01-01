@@ -8,6 +8,8 @@ import axios from "axios";
 import TablePage from "./TablePage";
 import LeaguesNavLInkMenu from "./LeaguesNavLInkMenu";
 import PrintLeaguesBar from "./PrintLeaguesBar";
+import HistoryResult from "./HistoryResult";
+import RoundsTablePage from "./RoundsTablePage";
 
 const API_URL="https://app.seker.live/fm1/";
 const LEAGUES="leagues";
@@ -16,8 +18,9 @@ const LEAGUES="leagues";
 class App extends React.Component {
     state={
         leagues:[],
+
         currentLeague:"",
-        pages:["Home","Table","HistoryResults","TopScorer","Stats"]
+        pages:["Home","Table","History Results","Top Scorer","Stats"]
     }
     componentDidMount() {
         this.getLeagues();
@@ -49,8 +52,10 @@ class App extends React.Component {
                 <Route path={"/"} element={<HomePage leagues={this.state.leagues} choseLeague={this.setChosenLeague} pages={this.state.pages} />}/>
                 <Route path={"/"+this.state.currentLeague.name+"/"+this.state.pages[0]} element={<LeagueHomePage leagues={this.state.leagues}  pages={this.state.pages} league={this.state.currentLeague} choseLeague={this.setChosenLeague} />}/>
                 <Route path={"/"+this.state.currentLeague.name+"/"+this.state.pages[1]} element={<TablePage leagues={this.state.leagues} pages={this.state.pages} league={this.state.currentLeague} choseLeague={this.setChosenLeague}/>}/>
+                <Route path={"/"+this.state.currentLeague.name+"/"+this.state.pages[2]} element={<RoundsTablePage leagues={this.state.leagues} pages={this.state.pages} league={this.state.currentLeague} choseLeague={this.setChosenLeague}/>}/>
             </Routes>
         </BrowserRouter>
+
         </div>
     );
   }

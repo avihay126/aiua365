@@ -1,12 +1,17 @@
 .App {
   text-align: center;
-  font-family: "Berlin Sans FB";
+  font-family: "Arial";
 }
 div[id="leagueMenu"]{
   font-size: 40px;
+  margin: auto;
 }
 
-
+table[id="roundsTable"]{
+ margin: auto;
+  border-spacing: 10px;
+  font-size: 20px;
+}
 div[id="pageTitle"]{
   font-size: 50px;
   font-weight: bold;
@@ -22,7 +27,7 @@ table[id="leaguesBar"]{
   width: fit-content;
   border: 2px solid black;
   border-spacing: 0 5px;
-  position: absolute;
+  top:50%
 
 }
 table[class="homePage"]{
