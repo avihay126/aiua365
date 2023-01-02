@@ -2,12 +2,15 @@ import React from "react";
 import PrintPageTitle from "./PrintPageTitle";
 import axios from "axios";
 import PrintLeaguesBar from "./PrintLeaguesBar";
+import PrintStatistics from "./PrintStatistics";
+import PrintWaiting from "./PrintWaiting";
 
 class StatisticsPage extends React.Component {
 
     state={
         history:[],
-        stats:{}
+        stats:{},
+        load:false
     }
 
 
@@ -18,10 +21,12 @@ class StatisticsPage extends React.Component {
     getHistory= async (league)=>{
         const response = await axios.get("https://app.seker.live/fm1/history/" +league.id);
         const history = response.data;
-        this.getStats(history)
         this.setState({
-            history:history
+            history:history,
+            load:false
         })
+        this.getStats(history)
+
     }
     choseLeague = async (league) => {
         this.props.choseLeague(league);
@@ -83,7 +88,8 @@ class StatisticsPage extends React.Component {
 
         }
         this.setState({
-            stats:stats
+            stats:stats,
+            load:true
         })
 
     }
@@ -95,26 +101,21 @@ class StatisticsPage extends React.Component {
                 <div>
                     <PrintPageTitle title={this.props.league.name + " league- " + this.props.pages[4]}/>
                 </div>
-                <div>
-                    <div>
-                        <PrintLeaguesBar currentPage={"Stats"} leagues={this.props.leagues}
-                                         choseLeague={this.choseLeague}
-                                         page={"page"}/>
-                    </div>
-                    <div>
-                        {this.state.stats.firstHalfGoals}
-                        {this.state.stats.secondHalfGoals}
-                        {this.state.stats.earlierGoal}
-                        {this.state.stats.latestGoal}
-                        {this.state.stats.roundMostGoal}
-                        {this.state.stats.roundLeastGoal}
-                        {this.state.stats.roundMostNumber}
-                        {this.state.stats.roundLeastNumber}
-
-
-
-                    </div>
-                </div>
+                {
+                    this.state.load?
+                        <div>
+                            <div>
+                                <PrintLeaguesBar currentPage={"Stats"} leagues={this.props.leagues}
+                                                 choseLeague={this.choseLeague}
+                                                 page={"page"}/>
+                            </div>
+                            <div>
+                                <PrintStatistics stats={this.state.stats}/>
+                            </div>
+                        </div>
+                        :
+                        <PrintWaiting/>
+                }
             </div>
         )
 
