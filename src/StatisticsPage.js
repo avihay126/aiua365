@@ -105,7 +105,7 @@ class StatisticsPage extends React.Component {
                     this.state.load?
                         <div>
                             <div>
-                                <PrintLeaguesBar currentPage={"Stats"} leagues={this.props.leagues}
+                                <PrintLeaguesBar currentPage={this.props.pages[4]} leagues={this.props.leagues}
                                                  choseLeague={this.choseLeague}
                                                  page={"page"}/>
                             </div>

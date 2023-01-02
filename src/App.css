@@ -46,17 +46,19 @@ tr[id="rowBar"] {
 }
 
 table[id="leagueTable"] {
+    font-size: 20px;
     width: fit-content;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     border: 4px solid black;
+    border-spacing: 5px;
 }
 
 tr[id="rowTable"] {
-    font-size: 25px;
     background: rgba(241, 232, 232, 0.68);
     cursor: default;
+
 }
 
 td[id="tableTeamName"]:hover {
@@ -71,8 +73,17 @@ tr[class="1"] {
 tr[class="bottom"] {
     color: red;
 }
+div[id="topScorer"]{
 
-div[id="playersList"] {
+    font-size: 60px;
+    width: fit-content;
+    border: 3px solid black;
+    background: rgba(200, 200, 232, 0.68);
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+}
+div[class="playersList"] {
     width: fit-content;
     border: 3px solid black;
     background: rgba(241, 232, 232, 0.68);

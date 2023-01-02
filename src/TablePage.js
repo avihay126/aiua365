@@ -242,7 +242,7 @@ class TablePage extends React.Component {
                     this.state.load ?
                         <div>
                             <div>
-                                <PrintLeaguesBar currentPage={"Table"} leagues={this.props.leagues}
+                                <PrintLeaguesBar currentPage={this.props.pages[1]} leagues={this.props.leagues}
                                                  choseLeague={this.choseLeague}
                                                  page={"page"}/>
                             </div>

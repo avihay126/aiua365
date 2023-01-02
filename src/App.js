@@ -8,6 +8,8 @@ import TablePage from "./TablePage";
 import LeaguesNavLInkMenu from "./LeaguesNavLInkMenu";
 import PrintLeaguesBar from "./PrintLeaguesBar";
 import StatisticsPage from "./StatisticsPage";
+import TopScorerPage from "./TopScorerPage";
+import HistoryResultsPage from "./HistoryResultsPage";
 
 const API_URL = "https://app.seker.live/fm1/";
 const LEAGUES = "leagues";
@@ -44,6 +46,7 @@ class App extends React.Component {
         const temp = window.location.pathname;
         let currentLeague = "";
         let leagueId = 0;
+
         if (temp !== "/") {
             currentLeague = temp.split("/")[1]
         }
@@ -87,6 +90,12 @@ class App extends React.Component {
                         <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[4]}
                                element={<StatisticsPage leagues={this.state.leagues} pages={this.state.pages}
                                                         league={this.state.currentLeague} choseLeague={this.setChosenLeague} />}/>}/>
+                        <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[3]}
+                               element={<TopScorerPage leagues={this.state.leagues} pages={this.state.pages}
+                                                        league={this.state.currentLeague} choseLeague={this.setChosenLeague} />}/>}/>
+                        <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[2]}
+                               element={<HistoryResultsPage leagues={this.state.leagues} pages={this.state.pages}
+                                                       league={this.state.currentLeague} choseLeague={this.setChosenLeague} />}/>}/>
                     </Routes>
                 </BrowserRouter>
             </div>

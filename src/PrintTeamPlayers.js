@@ -1,7 +1,7 @@
 function PrintTeamPlayers(props){
     let numbering=0;
     return(
-        <div id={"playersList"}>
+        <div className={"playersList"}>
             <div className={"subTitle"}>
                 PLAYERS:
             </div>

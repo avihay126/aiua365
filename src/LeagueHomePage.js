@@ -14,7 +14,7 @@ function LeagueHomePage(props) {
                 welcome to {props.league.name} league page
             </div>
             <div>
-                <PrintLeaguesBar currentPage={"Home"} leagues={props.leagues} choseLeague={props.choseLeague}
+                <PrintLeaguesBar currentPage={props.pages[0]} leagues={props.leagues} choseLeague={props.choseLeague}
                                  page={"page"}/>
             </div>
         </div>
