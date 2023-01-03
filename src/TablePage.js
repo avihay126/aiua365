@@ -6,7 +6,7 @@ import axios from "axios";
 import PrintTable from "./PrintTable";
 import PrintWaiting from "./PrintWaiting";
 import PrintTeamPlayers from "./PrintTeamPlayers";
-import PrintTeamHistory from "./PrintTeamHistory";
+import PrintRoundHistory from "./PrintRoundHistory";
 import PrintTeamDetails from "./PrintTeamDetails";
 
 const API_URL = "https://app.seker.live/fm1/";
@@ -88,7 +88,7 @@ class TablePage extends React.Component {
 
     }
     getTeamHistory = async (team) => {
-        const response = await axios.get("https://app.seker.live/fm1/history/" + team.league.id + "/" + team.id);
+        const response = await axios.get(API_URL+"history/" + team.league.id + "/" + team.id);
         const history = response.data;
         return history;
     }

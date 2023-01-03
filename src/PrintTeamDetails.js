@@ -1,5 +1,5 @@
 import PrintTeamPlayers from "./PrintTeamPlayers";
-import PrintTeamHistory from "./PrintTeamHistory";
+import PrintRoundHistory from "./PrintRoundHistory";
 
 function PrintTeamDetails(props){
     return(
@@ -9,7 +9,7 @@ function PrintTeamDetails(props){
             </div>
             <div>
                 <PrintTeamPlayers team={props.team} players={props.players}/>
-                <PrintTeamHistory games={props.games}/>
+                <PrintRoundHistory games={props.games} title={"HISTORY:"}/>
             </div>
 
         </div>

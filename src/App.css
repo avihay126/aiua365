@@ -109,7 +109,7 @@ div[id="teamDetails"]{
     text-align: left;
 
 }
-div[id="teamHistory"]{
+div[id="roundHistory"]{
     border: 2px solid black;
     float: right;
     margin: 10px;

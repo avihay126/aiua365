@@ -10,6 +10,7 @@ import PrintLeaguesBar from "./PrintLeaguesBar";
 import StatisticsPage from "./StatisticsPage";
 import TopScorerPage from "./TopScorerPage";
 import HistoryResultsPage from "./HistoryResultsPage";
+import NotFoundPage from "./NotFoundPage";
 
 const API_URL = "https://app.seker.live/fm1/";
 const LEAGUES = "leagues";
@@ -29,7 +30,6 @@ class App extends React.Component {
         this.getLeagues();
     }
 
-
     getLeagues = () => {
         axios.get(API_URL + LEAGUES).then((response) => {
             const leagueId = this.checkCurrentLeague(response.data);
@@ -46,7 +46,6 @@ class App extends React.Component {
         const temp = window.location.pathname;
         let currentLeague = "";
         let leagueId = 0;
-
         if (temp !== "/") {
             currentLeague = temp.split("/")[1]
         }
@@ -76,6 +75,7 @@ class App extends React.Component {
                     {window.location.pathname !== "/" &&
                         <LeaguesNavLInkMenu league={this.state.currentLeague.name} pages={this.state.pages}/>}
                     <Routes>
+                        <Route path={"*"} element={<NotFoundPage/>} />
                         <Route path={"/"}
                                element={<HomePage leagues={this.state.leagues} choseLeague={this.setChosenLeague}
                                                   pages={this.state.pages}/>}/>
