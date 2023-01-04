@@ -23,6 +23,7 @@ class TablePage extends React.Component {
     }
 
     async componentDidMount() {
+        this.props.showNavLink();
         await this.getTeams(this.props.league.id);
     }
 

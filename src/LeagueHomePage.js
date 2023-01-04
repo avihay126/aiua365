@@ -3,22 +3,30 @@ import React from "react";
 import PrintLeaguesBar from "./PrintLeaguesBar";
 
 
-function LeagueHomePage(props) {
+class LeagueHomePage extends React.Component{
 
-    return (
-        <div>
+    componentDidMount() {
+        this.props.showNavLink();
+    }
+
+    render() {
+        return (
             <div>
-                <PrintPageTitle title={props.league.name + " league"}/>
+                <div>
+                    <PrintPageTitle title={this.props.league.name + " league"}/>
+                </div>
+                <div>
+                    welcome to {this.props.league.name} league page
+                </div>
+                <div>
+                    <PrintLeaguesBar currentPage={this.props.pages[0]} leagues={this.props.leagues} choseLeague={this.props.choseLeague}
+                                     page={"page"}/>
+                </div>
             </div>
-            <div>
-                welcome to {props.league.name} league page
-            </div>
-            <div>
-                <PrintLeaguesBar currentPage={props.pages[0]} leagues={props.leagues} choseLeague={props.choseLeague}
-                                 page={"page"}/>
-            </div>
-        </div>
-    )
+        )
+    }
+
+
 }
 
 export default LeagueHomePage;

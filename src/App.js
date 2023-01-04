@@ -23,7 +23,9 @@ class App extends React.Component {
             name: "",
             id: 0
         },
-        pages: ["Home", "Table", "HistoryResults", "TopScorer", "Stats"]
+        pages: ["Home", "Table", "History Results", "Top Scorer", "Stats"],
+        load:false,
+        showNavLink:false
     }
 
     componentDidMount() {
@@ -38,7 +40,9 @@ class App extends React.Component {
                 currentLeague: {
                     name: response.data[leagueId].name,
                     id: response.data[leagueId].id
-                }
+                },
+                load:true,
+
             })
         });
     }
@@ -67,35 +71,45 @@ class App extends React.Component {
         })
 
     }
+    showMenu=()=>{
+        this.setState({
+            showNavLink:true
+        })
+    }
+    hideMenu=()=>{
+        this.setState({
+            showNavLink:false
+        })
+    }
 
     render() {
         return (
             <div className="App">
                 <BrowserRouter>
-                    {window.location.pathname !== "/" &&
+                    {this.state.showNavLink &&
                         <LeaguesNavLInkMenu league={this.state.currentLeague.name} pages={this.state.pages}/>}
                     <Routes>
-                        <Route path={"*"} element={<NotFoundPage/>} />
+                        <Route path={"*"} element={<NotFoundPage />} />
                         <Route path={"/"}
                                element={<HomePage leagues={this.state.leagues} choseLeague={this.setChosenLeague}
-                                                  pages={this.state.pages}/>}/>
+                                                  pages={this.state.pages} load={this.state.load} showNavLink={this.hideMenu}/>}/>
                         <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[0]}
                                element={<LeagueHomePage leagues={this.state.leagues} pages={this.state.pages}
                                                         league={this.state.currentLeague}
-                                                        choseLeague={this.setChosenLeague}/>}/>
+                                                        choseLeague={this.setChosenLeague} showNavLink={this.showMenu}/>}/>
                         <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[1]}
                                element={<TablePage leagues={this.state.leagues} pages={this.state.pages}
                                                    league={this.state.currentLeague}
-                                                   choseLeague={this.setChosenLeague}/>}/>
+                                                   choseLeague={this.setChosenLeague} showNavLink={this.showMenu}/>}/>
                         <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[4]}
                                element={<StatisticsPage leagues={this.state.leagues} pages={this.state.pages}
-                                                        league={this.state.currentLeague} choseLeague={this.setChosenLeague} />}/>}/>
+                                                        league={this.state.currentLeague} choseLeague={this.setChosenLeague} showNavLink={this.showMenu}/>}/>}/>
                         <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[3]}
                                element={<TopScorerPage leagues={this.state.leagues} pages={this.state.pages}
-                                                        league={this.state.currentLeague} choseLeague={this.setChosenLeague} />}/>}/>
+                                                        league={this.state.currentLeague} choseLeague={this.setChosenLeague} showNavLink={this.showMenu}/>}/>}/>
                         <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[2]}
                                element={<HistoryResultsPage leagues={this.state.leagues} pages={this.state.pages}
-                                                       league={this.state.currentLeague} choseLeague={this.setChosenLeague} />}/>}/>
+                                                       league={this.state.currentLeague} choseLeague={this.setChosenLeague}showNavLink={this.showMenu} />}/>}/>
                     </Routes>
                 </BrowserRouter>
             </div>

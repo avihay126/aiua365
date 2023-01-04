@@ -16,6 +16,7 @@ class HistoryResultsPage extends React.Component {
     }
 
     componentDidMount() {
+        this.props.showNavLink();
         this.getHistory(this.props.league);
     }
 

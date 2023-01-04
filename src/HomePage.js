@@ -1,26 +1,29 @@
 import React from "react";
 import PrintPageTitle from "./PrintPageTitle";
 import PrintLeaguesBar from "./PrintLeaguesBar";
+import PrintWaiting from "./PrintWaiting";
 
 
 class HomePage extends React.Component{
-    state={
-
+    componentDidMount() {
+        this.props.showNavLink()
     }
-
     render() {
-        return(
-            <div  >
-                <div>
-                    <PrintPageTitle title={"Welcome"}/>
+            return(
+                <div  >
+                    <div>
+                        <PrintPageTitle title={"Welcome"}/>
+                    </div>
+                    {
+                        this.props.load?
+                            <div>
+                                <PrintLeaguesBar currentPage={"Home"} leagues={this.props.leagues} choseLeague={this.props.choseLeague} page={this.props.pages[0]}/>
+                            </div>
+                            :
+                            <PrintWaiting/>
+                    }
                 </div>
-                <div>
-                    <PrintLeaguesBar currentPage={"Home"} leagues={this.props.leagues} choseLeague={this.props.choseLeague} page={"homePage"}/>
-                </div>
-
-            </div>
-        );
-
-    }
+            );
+        }
 }
 export default HomePage;

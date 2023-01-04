@@ -15,6 +15,7 @@ class StatisticsPage extends React.Component {
 
 
     async componentDidMount() {
+        this.props.showNavLink();
        await this.getHistory(this.props.league)
     }
 
