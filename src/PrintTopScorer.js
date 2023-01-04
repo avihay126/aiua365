@@ -6,11 +6,11 @@ function PrintTopScorer(props){
     return(
         <div  id={"topScorer"}>
             <div className={"subTitle"}>
-                TopScorer:
+                Top Scorer:
             </div>
             <table>
                 <tr>
-                    <th>Pos</th>
+                    <th> Pos</th>
                     <th>Name</th>
                     <th>Goals</th>
                 </tr>

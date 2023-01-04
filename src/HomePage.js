@@ -12,11 +12,12 @@ class HomePage extends React.Component{
             return(
                 <div  >
                     <div>
-                        <PrintPageTitle title={"Welcome"}/>
+                        <PrintPageTitle title={"Welcome to our sport web"}/>
                     </div>
                     {
                         this.props.load?
                             <div>
+                                <b style={{color:"blue"}}> choose your league</b>
                                 <PrintLeaguesBar currentPage={"Home"} leagues={this.props.leagues} choseLeague={this.props.choseLeague} page={this.props.pages[0]}/>
                             </div>
                             :

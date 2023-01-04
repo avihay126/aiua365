@@ -7,7 +7,7 @@ function PrintWaiting(){
                 <img src={logo} className="App-logo" alt="logo" />
             </div>
             <div>
-                PleaseWait...
+                Please Wait...
             </div>
 
         </div>
