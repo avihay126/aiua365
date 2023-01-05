@@ -1,8 +1,15 @@
-function NotFoundPage(){
-    return(
+import PrintLogoAiua from "./PrintLogoAiua";
+
+
+function NotFoundPage() {
+    return (
         <div>
-        Not Found!
+            <div id={"not found"}>This page is not exist!</div>
+            <PrintLogoAiua/>
         </div>
+
+
     )
 }
+
 export default NotFoundPage;
