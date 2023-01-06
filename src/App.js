@@ -101,7 +101,7 @@ class App extends React.Component {
                     {this.state.showNavLink &&
                         <LeaguesNavLInkMenu league={this.state.currentLeague.name} pages={this.state.pages} page={this.state.leagueHomePage?"leagueHome":undefined}/>}
                     <Routes>
-                        <Route path={"*"} element={<NotFoundPage />} />
+                        <Route path={"*"} element={<NotFoundPage/>} />
                         <Route path={"/"}
                                element={<HomePage leagues={this.state.leagues} choseLeague={this.setChosenLeague}
                                                   pages={this.state.pages} load={this.state.load} showNavLink={this.hideMenu}/>}/>

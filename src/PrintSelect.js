@@ -4,6 +4,7 @@ function PrintSelect(props){
     let number=0
     return(
         <div>
+            {props.id}:
             <select id={props.id} onChange={props.changed} value={props.value}>
                 {
                     props.rounds.map((round)=>{

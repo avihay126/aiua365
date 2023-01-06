@@ -3,7 +3,7 @@ import PrintSubTitle from "./PrintSubTitle";
 function PrintRoundHistory(props){
     let round=0;
     return(
-        <div id={"roundHistory"}>
+        <div id={"roundHistory"} className={props.type}>
 
             <PrintSubTitle title={props.title}/>
             <table>

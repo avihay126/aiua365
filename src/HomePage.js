@@ -17,7 +17,7 @@ class HomePage extends React.Component{
                     {
                         this.props.load?
                             <div>
-                                <b style={{color:"blue"}}> choose your league</b>
+
                                 <PrintLeaguesBar currentPage={"Home"} leagues={this.props.leagues} choseLeague={this.props.choseLeague} page={this.props.pages[0]}/>
                             </div>
                             :

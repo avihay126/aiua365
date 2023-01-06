@@ -17,7 +17,7 @@ function PrintHistoryResults(props){
                         return (
                             <div>
                                 {
-                                    <PrintRoundHistory  games={round} title={"Round: "+round[0].round}/>
+                                    <PrintRoundHistory   games={round} title={"Round: "+round[0].round}/>
                                 }
                             </div>
                         )

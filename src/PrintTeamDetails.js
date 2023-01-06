@@ -9,7 +9,7 @@ function PrintTeamDetails(props){
             </div>
             <div>
                 <PrintTeamPlayers team={props.team} players={props.players}/>
-                <PrintRoundHistory games={props.games} title={"HISTORY:"}/>
+                <PrintRoundHistory type={"teamGames"} games={props.games} title={"HISTORY:"}/>
             </div>
 
         </div>

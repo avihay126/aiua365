@@ -4,6 +4,13 @@
     /*position: absolute;*/
     /*background: linear-gradient(to right, #2a7de1, #d3cdbd);*/
 }
+body {
+
+    background-image: url(backgroundFootball.png);
+    background-position: center;
+
+}
+
 
 div[id="navLinkLeagueMenu"] {
     font-size: 40px;
@@ -30,6 +37,7 @@ div[id="allRounds"]{
   float: left;
     margin-left: auto;
     margin-right: auto;
+
 }
 table[id="roundsTable"]{
     margin: auto;
@@ -163,11 +171,13 @@ div[id="roundHistory"]{
     font-size: 20px;
     font-family: sans-serif;
     border: 2px solid black;
-    float:right;
-    margin: 10px;
+    margin: 10px auto ;
     background: #c6d0e3;
     width: fit-content;
     text-align: center;
+}
+div[class="teamGames"]{
+    float: right;
 }
 b{
 color: blue;
@@ -206,6 +216,11 @@ div[id="not found"]{
     text-decoration: none;
     margin: 20px;
     color: black;
+}
+select{
+    width: 50px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #navLink:hover {
