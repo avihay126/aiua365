@@ -24,6 +24,7 @@ class TablePage extends React.Component {
 
     async componentDidMount() {
         this.props.showNavLink();
+
         await this.getTeams(this.props.league.id);
     }
 
@@ -241,7 +242,7 @@ class TablePage extends React.Component {
                 </div>
                 {
                     this.state.load ?
-                        <div>
+                        <div className={"pageContent"}>
                             <div>
                                 <PrintLeaguesBar currentPage={this.props.pages[1]} leagues={this.props.leagues}
                                                  choseLeague={this.choseLeague}

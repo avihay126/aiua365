@@ -7,6 +7,10 @@ class LeagueHomePage extends React.Component{
 
     componentDidMount() {
         this.props.showNavLink();
+        this.props.navStyleHome();
+    }
+    componentWillUnmount() {
+        this.props.navStylePage();
     }
 
     render() {
@@ -15,7 +19,7 @@ class LeagueHomePage extends React.Component{
                 <div>
                     <PrintPageTitle title={this.props.league.name + " league"}/>
                 </div>
-                <div>
+                <div className={"welcomeLeague"}>
                     welcome to {this.props.league.name} league page
                 </div>
                 <div>

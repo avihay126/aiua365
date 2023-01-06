@@ -25,7 +25,8 @@ class App extends React.Component {
         },
         pages: ["Home", "Table", "History Results", "Top Scorer", "Stats"],
         load:false,
-        showNavLink:false
+        showNavLink:false,
+        leagueHomePage:false
     }
 
     componentDidMount() {
@@ -81,21 +82,32 @@ class App extends React.Component {
             showNavLink:false
         })
     }
+    isLeagueHomePage=()=>{
+        this.setState({
+            leagueHomePage:true
+        })
+    }
+    isNotLeagueHomePage=()=>{
+        this.setState({
+            leagueHomePage:false
+        })
+    }
+
 
     render() {
         return (
             <div className="App">
                 <BrowserRouter>
                     {this.state.showNavLink &&
-                        <LeaguesNavLInkMenu league={this.state.currentLeague.name} pages={this.state.pages}/>}
+                        <LeaguesNavLInkMenu league={this.state.currentLeague.name} pages={this.state.pages} page={this.state.leagueHomePage?"leagueHome":undefined}/>}
                     <Routes>
                         <Route path={"*"} element={<NotFoundPage />} />
                         <Route path={"/"}
                                element={<HomePage leagues={this.state.leagues} choseLeague={this.setChosenLeague}
                                                   pages={this.state.pages} load={this.state.load} showNavLink={this.hideMenu}/>}/>
                         <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[0]}
-                               element={<LeagueHomePage leagues={this.state.leagues} pages={this.state.pages}
-                                                        league={this.state.currentLeague}
+                               element={<LeagueHomePage leagues={this.state.leagues} pages={this.state.pages} navStylePage={this.isNotLeagueHomePage}
+                                                        league={this.state.currentLeague} navStyleHome={this.isLeagueHomePage}
                                                         choseLeague={this.setChosenLeague} showNavLink={this.showMenu}/>}/>
                         <Route path={"/" + this.state.currentLeague.name + "/" + this.state.pages[1]}
                                element={<TablePage leagues={this.state.leagues} pages={this.state.pages}

@@ -11,7 +11,7 @@ function PrintHistoryResults(props){
                 <PrintSelect id={props.minInputId} rounds={props.rounds} changed={props.changed} value={props.minInput}/>
                 <PrintSelect id={props.maxInputId} rounds={props.rounds} changed={props.changed} value={props.maxInput}/>
             </div>
-            <div>
+            <div id={"allRounds"}>
                 {
                     temp.map((round) => {
                         return (

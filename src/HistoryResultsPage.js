@@ -17,6 +17,7 @@ class HistoryResultsPage extends React.Component {
 
     componentDidMount() {
         this.props.showNavLink();
+
         this.getHistory(this.props.league);
     }
 
@@ -100,7 +101,7 @@ class HistoryResultsPage extends React.Component {
                 </div>
                 {
                     this.state.load?
-                        <div>
+                        <div className={"pageContent"}>
                             <div>
                                 <PrintHistoryResults minInput={this.state.minInput}maxInput={this.state.maxInput}
                                                      minInputId={"minInput"} maxInputId={"maxInput"} rounds={this.state.rounds}

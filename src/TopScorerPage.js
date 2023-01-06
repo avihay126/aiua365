@@ -14,6 +14,7 @@ class TopScorerPage extends React.Component{
 
 componentDidMount() {
     this.props.showNavLink();
+
         this.getHistory(this.props.league)
 }
     getHistory=(league)=>{
@@ -92,7 +93,7 @@ componentDidMount() {
                 </div>
                 {
                     this.state.load?
-                        <div>
+                        <div className={"pageContent"}>
                             <div>
                                 <PrintLeaguesBar currentPage={this.props.pages[3]} leagues={this.props.leagues}
                                                  choseLeague={this.choseLeague}

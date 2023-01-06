@@ -1,11 +1,35 @@
 .App {
     text-align: center;
     font-family: Arial;
+    /*position: absolute;*/
+    /*background: linear-gradient(to right, #2a7de1, #d3cdbd);*/
 }
 
-div[id="leagueMenu"] {
+div[id="navLinkLeagueMenu"] {
     font-size: 40px;
-    font-family: "Brush Script MT";
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+}
+
+div[class="leagueHome"]{
+    width:fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+div[class="welcomeLeague"]{
+    margin-top: 100px;
+    font-size: 50px;
+    font-weight: bold;
+
+
+}
+
+div[id="allRounds"]{
+  float: left;
+    margin-left: auto;
+    margin-right: auto;
 }
 table[id="roundsTable"]{
     margin: auto;
@@ -56,6 +80,10 @@ table[class="page"] {
     top: 150px;
     font-size: 30px;
 }
+div[class="pageContent"]{
+    position: absolute;
+    margin-left: 350px;
+}
 
 tr[id="rowBar"] {
     background: rgb(255, 255, 255);
@@ -65,25 +93,22 @@ table[id="leagueTable"] {
     font-size: 20px;
     width: fit-content;
     text-align: center;
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
     border: 2px solid black;
     border-spacing: 5px;
-    position: static;
 }
 
 tr[id="rowTable"] {
     background: rgba(241, 232, 232, 0.68);
     cursor: default;
-
 }
 
 td[id="tableTeamName"]:hover {
     cursor: pointer;
     color: dodgerblue;
 }
-
+td[id="tableTeamName"] {
+    font-weight: bold;
+}
 tr[class="1"] {
     color: blue;
 }
@@ -98,8 +123,8 @@ div[id="topScorer"]{
     border: 2px solid black;
     text-align: center;
     background: rgba(200, 200, 232, 0.68);
-    margin-right: auto;
-    margin-left: auto;
+    margin-left: 200px;
+
     margin-top: 5%;
 }
 div[class="playersList"] {
@@ -129,16 +154,23 @@ div[id="teamDetails"]{
     text-align: left;
 
 }
+tr[class="rowBlock"]{
+    border: 1px solid black;
+    border-spacing: 25px;
+
+}
 div[id="roundHistory"]{
     font-size: 20px;
     font-family: sans-serif;
-    font-style:inherit;
     border: 2px solid black;
     float:right;
     margin: 10px;
     background: #c6d0e3;
-    padding: 5px;
-    position: center;
+    width: fit-content;
+    text-align: center;
+}
+b{
+color: blue;
 }
 div[class="subTitle"]{
     font-family: sans-serif;
@@ -151,8 +183,7 @@ div[id="stats"]{
     font-size: 30px;
     width: fit-content;
     margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 100px;
     background: #c6d0e3;
     border: 1px solid black;
 
@@ -188,8 +219,8 @@ div[class="blockInStats"]{
       width: 100px;
       height: 100px;
       animation: App-logo-spin infinite 20s linear;
-      
-      
+
+
   }
 }
 
