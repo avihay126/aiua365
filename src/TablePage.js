@@ -10,6 +10,7 @@ import PrintRoundHistory from "./PrintRoundHistory";
 import PrintTeamDetails from "./PrintTeamDetails";
 
 const API_URL = "https://app.seker.live/fm1/";
+const TEAMS_PATH = "teams";
 
 class TablePage extends React.Component {
     state = {
@@ -29,7 +30,7 @@ class TablePage extends React.Component {
     }
 
     getTeams = async (leagueId) => {
-        axios.get(API_URL + "teams/" + leagueId).then((response) => {
+        axios.get(API_URL + TEAMS_PATH + "/" + leagueId).then((response) => {
             this.setState({
                 load: false,
                 teamSelected: false
@@ -90,7 +91,7 @@ class TablePage extends React.Component {
 
     }
     getTeamHistory = async (team) => {
-        const response = await axios.get(API_URL+"history/" + team.league.id + "/" + team.id);
+        const response = await axios.get(API_URL + "history/" + team.league.id + "/" + team.id);
         const history = response.data;
         return history;
     }
@@ -178,7 +179,7 @@ class TablePage extends React.Component {
 
     teamSelected = async (team) => {
         this.teamHistory(team);
-        const response = await axios.get("https://app.seker.live/fm1/squad/" + this.props.league.id + "/" + team.id).then((response) => {
+        const response = await axios.get(API_URL + "squad/" + this.props.league.id + "/" + team.id).then((response) => {
             const data = response.data;
             this.setState({
                 currentTeam: team,

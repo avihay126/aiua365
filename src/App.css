@@ -1,8 +1,7 @@
 .App {
     text-align: center;
     font-family: Arial;
-    /*position: absolute;*/
-    /*background: linear-gradient(to right, #2a7de1, #d3cdbd);*/
+
 }
 body {
 
@@ -25,9 +24,13 @@ div[class="leagueHome"]{
     transform: translate(-50%, -50%);
 }
 div[class="welcomeLeague"]{
-    margin-top: 100px;
+
     font-size: 50px;
     font-weight: bold;
+    width: fit-content;
+    margin: 100px auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(to right, #a4a4a3, #fdfdfd, #a4a4a3);
 
 
 }
@@ -93,7 +96,8 @@ div[class="pageContent"]{
 }
 
 tr[id="rowBar"] {
-    background: rgb(255, 255, 255);
+    background: linear-gradient(to right, #fdfdfd, #a4a4a3);
+
 }
 
 table[id="leagueTable"] {
@@ -208,7 +212,7 @@ div[id="not found"]{
     font-size: 40px;
     position: center;
     margin-top: 300px;
-    color: darkcyan;
+    color: black;
 }
 
 #navLink {
@@ -220,17 +224,20 @@ select{
     width: 50px;
     font-size: 20px;
     font-weight: bold;
+    border-radius: 10px;
 }
 
 #navLink:hover {
-    color: aliceblue;
-    background: black;
+    color: #0202f1;
+    background: #a9b7c6;
+    border-radius: 20px;
 
 }
 
 #navLink[class="isActive"] {
-    color: aliceblue;
-    background: black;
+    color: black;
+    background: linear-gradient(to right, #d3cdbd, #7fa3f1, #2a7de1, #7fa3f1, #d3cdbd);
+    border-radius: 20px;
 }
 
 

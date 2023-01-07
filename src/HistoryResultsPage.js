@@ -7,12 +7,16 @@ import PrintRoundHistory from "./PrintRoundHistory";
 import PrintHistoryResults from "./PrintHistoryResults";
 import PrintWaiting from "./PrintWaiting";
 
+const API_URL = "https://app.seker.live/fm1/";
+const HISTORY_PATH = "history"
+
+
 class HistoryResultsPage extends React.Component {
     state = {
         minInput: 0,
         maxInput: 0,
         rounds: [],
-        load:false
+        load: false
     }
 
     componentDidMount() {
@@ -22,7 +26,8 @@ class HistoryResultsPage extends React.Component {
     }
 
     getHistory = (league) => {
-        axios.get("https://app.seker.live/fm1/history/" + league.id).then((response) => {
+
+        axios.get(API_URL + HISTORY_PATH + "/" + league.id).then((response) => {
             const games = response.data;
             this.getRounds(games)
             this.setState({
@@ -43,7 +48,7 @@ class HistoryResultsPage extends React.Component {
             const homeTeamGoals = this.getGoalsInGame(game.goals).homeTeamGoals;
             const awayTeamGoals = this.getGoalsInGame(game.goals).awayTeamGoals;
             const match = {
-                round:round,
+                round: round,
                 homeTeamName: homeTeamName,
                 homeTeamGoals: homeTeamGoals,
                 awayTeamName: awayTeamName,
@@ -53,7 +58,7 @@ class HistoryResultsPage extends React.Component {
         }
         this.setState({
             rounds: temp,
-            load:true
+            load: true
         })
 
     }
@@ -80,17 +85,17 @@ class HistoryResultsPage extends React.Component {
 
 
     changed = (event) => {
-        const value=Number(event.target.value);
-       if (event.target.id==="minInput"&&value<=this.state.maxInput){
+        const value = Number(event.target.value);
+        if (event.target.id === "minInput" && value <= this.state.maxInput) {
 
-           this.setState({
-               minInput:value
-           })
-       }else if(event.target.id==="maxInput"&&value>=this.state.minInput) {
-           this.setState({
-               maxInput:value
-           })
-       }
+            this.setState({
+                minInput: value
+            })
+        } else if (event.target.id === "maxInput" && value >= this.state.minInput) {
+            this.setState({
+                maxInput: value
+            })
+        }
     }
 
     render() {
@@ -100,11 +105,12 @@ class HistoryResultsPage extends React.Component {
                     <PrintPageTitle title={this.props.league.name + " league- " + this.props.pages[2]}/>
                 </div>
                 {
-                    this.state.load?
+                    this.state.load ?
                         <div className={"pageContent"}>
                             <div>
-                                <PrintHistoryResults minInput={this.state.minInput}maxInput={this.state.maxInput}
-                                                     minInputId={"minInput"} maxInputId={"maxInput"} rounds={this.state.rounds}
+                                <PrintHistoryResults minInput={this.state.minInput} maxInput={this.state.maxInput}
+                                                     minInputId={"minInput"} maxInputId={"maxInput"}
+                                                     rounds={this.state.rounds}
                                                      changed={this.changed}/>
                             </div>
                             <div>
